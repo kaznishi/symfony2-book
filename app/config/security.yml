@@ -9,7 +9,7 @@ security:
             memory:
                 users:
                     admin:
-                        password: 生成したパスワードハッシュ
+                        password: $2y$13$wI5gUnj7mBSpAONlb5V20u..XDJpmyTpnkN0eHlpnZMvMZuvQyxW2 #password
                         roles: [ 'ROLE_ADMIN' ]
 
     firewalls:

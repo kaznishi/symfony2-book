@@ -9,7 +9,7 @@ framework:
 
 web_profiler:
     toolbar: true
-    intercept_redirects: true
+    intercept_redirects: false
 
 monolog:
     handlers:
@@ -45,7 +45,7 @@ assetic:
     use_controller: true
 
 swiftmailer:
-    delivery_address: YOURADDRESS@DOMAIN.COM
+    delivery_address: k.nsm5260dev@gmail.com
 
 nelmio_api_doc: ~
 
