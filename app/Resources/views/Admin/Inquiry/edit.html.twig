@@ -46,6 +46,13 @@
         </td>
     </tr>
     <tr>
+        <th>スタッフ</th>
+        <td>
+            {{ form_widget(form.staff, {"attr": {"class":"form-control"}}) }}
+            {{ form_errors(form.staff) }}
+        </td>
+    </tr>
+    <tr>
         <th>対応メモ</th>
         <td>
             {{ form_widget(form.processMemo, {"attr": {"class":"form-control"}}) }}

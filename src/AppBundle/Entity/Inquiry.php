@@ -75,6 +75,20 @@ class Inquiry
     private $processStatus;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="staff_id", type="integer", nullable=true)
+     */
+    private $staffId;
+
+    /**
+     * @var Staff
+     * @ORM\ManyToOne(targetEntity="Staff", fetch="EAGER")
+     * @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
+     */
+    private $staff;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="process_memo", type="text")
@@ -249,6 +263,42 @@ class Inquiry
     {
         return $this->processStatus;
     }
+
+    /**
+     * Get staffId
+     *
+     * @return integer
+     */
+    public function getStaffId()
+    {
+        return $this->staffId;
+    }
+
+    /**
+     * Set staff
+     *
+     * @param Staff $staff
+     *
+     * @return Inquiry
+     */
+    public function setStaff($staff)
+    {
+        $this->staff = $staff;
+
+        return $this;
+    }
+
+    /**
+     * Get staff
+     *
+     * @return Staff
+     */
+    public function getStaff()
+    {
+        return $this->staff;
+    }
+
+
 
     /**
      * Set processMemo

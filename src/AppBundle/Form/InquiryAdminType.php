@@ -19,6 +19,10 @@ class InquiryAdminType extends AbstractType
                 'empty_data' => 0,
                 'expanded' => true,
             ])
+            ->add('staff', 'entity', array(
+                'class' => 'AppBundle:Staff',
+                'property' => 'name',
+            ))
             ->add('processMemo', 'textarea')
             ->add('submit', 'submit', [
                 'label' => '保存',
