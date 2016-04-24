@@ -61,7 +61,9 @@ class AdminInquiryEditController extends Controller
 
     private function createInquiryForm($inquiry)
     {
-        return $this->createForm(new InquiryAdminType(), $inquiry);
+        $isInquiryStaff = 1;
+        return $this->createForm(new InquiryAdminType($isInquiryStaff), $inquiry);
+//        return $this->createForm(new InquiryAdminType(), $inquiry, $options);
 //        return $this->createFormBuilder($inquiry,
 //            ["validation_groups" => ["admin"]])
 //            ->add('processStatus', 'choice', [

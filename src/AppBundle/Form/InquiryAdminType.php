@@ -8,6 +8,11 @@ use Doctrine\ORM\EntityRepository;
 
 class InquiryAdminType extends AbstractType
 {
+    public function __construct($isInquiryStaff)
+    {
+        $this->isInquiryStaff = $isInquiryStaff;
+    }
+    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -25,7 +30,7 @@ class InquiryAdminType extends AbstractType
                 'property' => 'name',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('s')
-                        ->where("s.isInquiryStaff = :isInquiryStaff")->setParameter('isInquiryStaff', 1);
+                        ->where("s.isInquiryStaff = :isInquiryStaff")->setParameter('isInquiryStaff', $this->isInquiryStaff);
                 }
             ))
             ->add('processMemo', 'textarea')
