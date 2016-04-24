@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class InquiryAdminType extends AbstractType
 {
@@ -22,6 +23,10 @@ class InquiryAdminType extends AbstractType
             ->add('staff', 'entity', array(
                 'class' => 'AppBundle:Staff',
                 'property' => 'name',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('s')
+                        ->where("s.isInquiryStaff = :isInquiryStaff")->setParameter('isInquiryStaff', 1);
+                }
             ))
             ->add('processMemo', 'textarea')
             ->add('submit', 'submit', [
